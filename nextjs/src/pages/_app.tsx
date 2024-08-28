@@ -11,12 +11,14 @@ const client = NillionClient.create({
   network: NamedNetwork.enum.Devnet,
   overrides: async () => {
     const signer = await createSignerFromKey(
-      "9a975f567428d054f2bf3092812e6c42f901ce07d9711bc77ee2cd81101f42c5",
+      process.env.NEXT_PUBLIC_NILLION_NILCHAIN_PRIVATE_KEY_0!,
     );
     return {
       endpoint: "http://localhost:8080/nilchain",
       signer,
       userSeed: "example@nillion",
+      cluster: process.env.NEXT_PUBLIC_NILLION_CLUSTER_ID,
+      bootnodes: [process.env.NEXT_PUBLIC_NILLION_BOOTNODE_WEBSOCKET],
     };
   },
 });
