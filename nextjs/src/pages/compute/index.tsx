@@ -39,14 +39,14 @@ export default function Compute() {
 
   // Other CONSTS
   const PARTY_NAME = "Party1" as PartyName;
-  const PROGRAM_NAME = "secret_addition";
+  const PROGRAM_NAME = "main";
 
   // Use of FetchProgram Hook
   const fetchProgram = useFetchProgramOutput({
     id: computeID,
   });
 
-  // Handle using the secret_addition Program
+  // Handle using the main Program
   const handleUseProgram = async () => {
     try {
       // Bindings
@@ -151,7 +151,7 @@ export default function Compute() {
   // Fetch Nada Program Code.
   useEffect(() => {
     const fetchProgramCode = async () => {
-      const response = await fetch(`./programs/secret_addition.py`);
+      const response = await fetch(`./programs/main.py`);
       const text = await response.text();
       setSelectedProgramCode(text);
     };
