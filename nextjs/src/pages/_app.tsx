@@ -8,6 +8,8 @@ import { NillionClientProvider } from "@nillion/client-react-hooks";
 import { NillionClient } from "@nillion/client-vms";
 import type { AppProps } from "next/app";
 
+import Navbar from "@/components/Navbar";
+
 const client = NillionClient.create({
   network: NamedNetwork.enum.Devnet,
   overrides: async () => {
@@ -28,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <NillionClientProvider client={client}>
+        <Navbar />
         <Component {...pageProps} />
       </NillionClientProvider>
     </ChakraProvider>
