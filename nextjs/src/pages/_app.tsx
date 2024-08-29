@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ChakraProvider, Text } from '@chakra-ui/react';
 import { NamedNetwork } from "@nillion/client-core";
 import { createSignerFromKey } from "@nillion/client-payments";
 import { NillionClientProvider } from "@nillion/client-react-hooks";
@@ -25,8 +26,10 @@ const client = NillionClient.create({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <NillionClientProvider client={client}>
-      <Component {...pageProps} />
-    </NillionClientProvider>
+    <ChakraProvider>
+      <NillionClientProvider client={client}>
+        <Component {...pageProps} />
+      </NillionClientProvider>
+    </ChakraProvider>
   );
 }
