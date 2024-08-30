@@ -87,7 +87,7 @@ export default function Compute() {
   useEffect(() => {
     if (fetchProgram.data) {
       //@ts-ignore
-      setComputeResult(fetchProgram.data.my_output.toString());
+      setComputeResult(fetchProgram.data);
     }
   }, [fetchProgram.data]);
 
@@ -246,9 +246,13 @@ export default function Compute() {
         </Button>
         {computeResult && (
           <div className="mt-2">
-            <p className="text-sm text-gray-600">
-              Compute Result: {computeResult}
-            </p>
+            <div className="text-sm text-gray-600">
+              Compute Result: {computeResult && Object.keys(computeResult).map(key => (
+                <p className="p-4 m-2 bg-yellow-200" key={key}>
+                  {key} = {computeResult[key].toString()}
+                </p>
+              ))}
+            </div>
           </div>
         )}
       </div>
