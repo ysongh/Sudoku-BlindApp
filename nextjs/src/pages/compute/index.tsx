@@ -7,6 +7,7 @@ import {
   useFetchProgramOutput,
 } from "@nillion/client-react-hooks";
 import { useEffect, useState } from "react";
+import { Container, Input, Button } from '@chakra-ui/react'
 import {
   ProgramId,
   PartyName,
@@ -159,7 +160,7 @@ export default function Compute() {
   }, [selectedProgramCode]);
 
   return (
-    <div className="flex flex-col justify-center min-h-screen p-8">
+    <Container className="flex flex-col justify-center min-h-screen p-8" maxW='1100px'>
       {/* Store Programs Section */}
       <div className="mt-4">
         <h3 className="text-lg font-semibold mb-2">Program Code:</h3>
@@ -168,12 +169,12 @@ export default function Compute() {
             <code>{selectedProgramCode}</code>
           </pre>
         </div>
-        <button
+        <Button
           onClick={() => handleStoreProgram()}
           className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2 inline-block"
         >
           Store Program
-        </button>
+        </Button>
       </div>
 
       {programID && (
@@ -188,18 +189,18 @@ export default function Compute() {
       <div>
         <h3 className="text-lg font-semibold mb-2 text-left">Store Secret:</h3>
         <p> Store your int_1</p>
-        <input
+        <Input
           placeholder="Enter your secret value"
           value={secretValue1}
           onChange={(e) => setSecretValue1(Number(e.target.value))}
           className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
         />
-        <button
+        <Button
           onClick={() => handleStoreSecretInteger1()}
           className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
         >
           Store Secret
-        </button>
+        </Button>
 
         {secretValue1ID && (
           <div className="mt-2">
@@ -210,18 +211,18 @@ export default function Compute() {
         )}
 
         <p> Store your int_2</p>
-        <input
+        <Input
           placeholder="Enter your secret value"
           value={secretValue2}
           onChange={(e) => setSecretValue2(Number(e.target.value))}
           className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
         />
-        <button
+        <Button
           onClick={() => handleStoreSecretInteger2()}
           className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
         >
           Store Secret
-        </button>
+        </Button>
 
         {secretValue2ID && (
           <div className="mt-2">
@@ -237,12 +238,12 @@ export default function Compute() {
       {/* Compute Section */}
       <div>
         <h3 className="text-lg font-semibold mb-2 text-left">Compute:</h3>
-        <button
+        <Button
           onClick={() => handleUseProgram()}
           className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
         >
           Compute
-        </button>
+        </Button>
         {computeResult && (
           <div className="mt-2">
             <p className="text-sm text-gray-600">
@@ -251,6 +252,6 @@ export default function Compute() {
           </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 }
