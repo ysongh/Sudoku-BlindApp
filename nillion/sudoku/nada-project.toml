@@ -7,5 +7,5 @@ path = "src/main.py"
 prime_size = 128
 
 [[programs]]
-path = "src/secret_addition.py"
+path = "src/game.py"
 prime_size = 128
