@@ -13,6 +13,6 @@ def nada_main():
     grid.append(my_int2 + my_int1)
 
     return [
-        Output(grid[i], "my_output" + str(i), party1)
+        Output(grid[i], str(i), party1)
         for i in range(5)
     ]
