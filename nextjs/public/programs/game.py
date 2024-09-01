@@ -10,9 +10,10 @@ def nada_main():
 
     my_int2 = SecretInteger(Input(name="my_int2", party=party1))
 
-    grid.append(my_int2 + my_int1)
+    grid.append(my_int1 + my_int2)
+    grid.append(SecretInteger.random() % Integer(10));
 
     return [
         Output(grid[i], str(i), party1)
-        for i in range(5)
+        for i in range(6)
     ]
