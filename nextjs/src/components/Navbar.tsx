@@ -9,12 +9,12 @@ function Navbar() {
           <Box mr="4">
             <Heading color="green" mt="3" mb="5">Sudoku</Heading>
           </Box>
-          <NextLink href='/' passHref>
+          {/* <NextLink href='/' passHref>
             <Link>Home</Link>
           </NextLink>
           <NextLink href='/game' passHref>
             <Link>Game</Link>
-          </NextLink>
+          </NextLink> */}
           <Spacer />
           <Button>
             Connect Wallet
