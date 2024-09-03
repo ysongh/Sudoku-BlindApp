@@ -1,5 +1,5 @@
-import { Container, Box, Flex, Heading, Spacer, Button, Link } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import { Container, Box, Flex, Heading, Spacer, Button } from '@chakra-ui/react';
+import Link from 'next/link';
 
 function Navbar() {
   return (
@@ -9,12 +9,12 @@ function Navbar() {
           <Box mr="4">
             <Heading color="green" mt="3" mb="5">Sudoku</Heading>
           </Box>
-          {/* <NextLink href='/' passHref>
-            <Link>Home</Link>
-          </NextLink>
-          <NextLink href='/game' passHref>
-            <Link>Game</Link>
-          </NextLink> */}
+          <Link href='/' passHref>
+            Home
+          </Link>
+          <Link href='/game' passHref>
+            Game
+          </Link>
           <Spacer />
           <Button>
             Connect Wallet
