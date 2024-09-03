@@ -3,3 +3,7 @@
 # Other
 .DS_Store
 .env
+
+# Hardhat files
+cache
+artifacts
