@@ -7,7 +7,7 @@ import {
   useFetchProgramOutput,
 } from "@nillion/client-react-hooks";
 import { useEffect, useState } from "react";
-import { Container, Input, Button } from '@chakra-ui/react'
+import { Container, Code, Input, Button } from '@chakra-ui/react'
 import {
   ProgramId,
   PartyName,
@@ -166,7 +166,7 @@ export default function Compute() {
         <h3 className="text-lg font-semibold mb-2">Program Code:</h3>
         <div className="border-2 border-gray-300 rounded-lg p-4 max-h-60 overflow-y-auto bg-white">
           <pre className="whitespace-pre-wrap break-words">
-            <code>{selectedProgramCode}</code>
+            <Code>{selectedProgramCode}</Code>
           </pre>
         </div>
         <Button
