@@ -7,7 +7,8 @@ def nada_main():
 
     party1 = Party(name="Party1")
 
-    grid: list[SecretInteger] = [Integer(1), Integer(3), Integer(2), Integer(4)]
+    answerGrid: list[SecretInteger] = [Integer(1), Integer(3), Integer(2), Integer(4)]
+    playerGrid: list[SecretInteger] = [Integer(1), Integer(3), Integer(2), Integer(4)]
 
     size: 4
 
@@ -17,11 +18,11 @@ def nada_main():
 
     for i in range(4):
         is_target = check_value_at_position(my_int1, Integer(i))
-        grid[i] = is_target.if_else(my_int2, grid[i])
+        playerGrid[i] = is_target.if_else(my_int2, playerGrid[i])
 
     # grid.append(SecretInteger.random() % Integer(10));
 
     return [
-        Output(grid[i], str(i), party1)
+        Output(playerGrid[i], str(i), party1)
         for i in range(4)
     ]
