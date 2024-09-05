@@ -11,21 +11,25 @@ def nada_main():
     answerGrid: list[SecretInteger] = [Integer(1), Integer(3), Integer(2), Integer(4)]
     playerGrid: list[SecretInteger] = [Integer(1), Integer(3), Integer(2), Integer(4)]
 
-    size: 4
-
     my_int1 = SecretInteger(Input(name="my_int1", party=party1))
     my_int2 = SecretInteger(Input(name="my_int2", party=party1))
 
-    player_target = SecretInteger(Input(name="player_target", party=party1))
-    player_input = SecretInteger(Input(name="player_input", party=party1))
+    size = 4
 
-    for i in range(4):
+    player_target_1 = SecretInteger(Input(name="player_target_1", party=party2))
+    player_input_1 = SecretInteger(Input(name="player_input_1", party=party2))
+    player_target_2 = SecretInteger(Input(name="player_target_2", party=party2))
+    player_input_2 = SecretInteger(Input(name="player_input_2", party=party2))
+
+    for i in range(size):
         is_target = check_value_at_position(my_int1, Integer(i))
         playerGrid[i] = is_target.if_else(my_int2, playerGrid[i])
     
-    for i in range(4):
-        is_target = check_value_at_position(player_target, Integer(i))
-        playerGrid[i] = is_target.if_else(player_input, playerGrid[i])
+    for i in range(size):
+        is_target_1 = check_value_at_position(player_target_1, Integer(i))
+        is_target_2 = check_value_at_position(player_target_2, Integer(i))
+        playerGrid[i] = is_target_1.if_else(player_input_1, playerGrid[i])
+        playerGrid[i] = is_target_2.if_else(player_input_2, playerGrid[i])
 
     # grid.append(SecretInteger.random() % Integer(10));
 
