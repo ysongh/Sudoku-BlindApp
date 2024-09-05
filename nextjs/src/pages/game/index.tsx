@@ -7,7 +7,7 @@ import {
   useFetchProgramOutput,
 } from "@nillion/client-react-hooks";
 import { useEffect, useState } from "react";
-import { Container, Code, Input, Button } from '@chakra-ui/react'
+import { Container, Code, Input, Heading, Button } from '@chakra-ui/react'
 import {
   ProgramId,
   PartyName,
@@ -32,9 +32,17 @@ export default function Compute() {
   const [selectedProgramCode, setSelectedProgramCode] = useState("");
   const [secretValue1, setSecretValue1] = useState<number>(0);
   const [secretValue2, setSecretValue2] = useState<number>(0);
+  const [secretValue3, setSecretValue3] = useState<number>(0);
+  const [secretValue4, setSecretValue4] = useState<number>(0);
+  const [secretValue5, setSecretValue5] = useState<number>(0);
+  const [secretValue6, setSecretValue6] = useState<number>(0);
   const [programID, setProgramID] = useState<ProgramId>();
   const [secretValue1ID, setSecretValue1ID] = useState<StoreId>();
   const [secretValue2ID, setSecretValue2ID] = useState<StoreId>();
+  const [secretValue3ID, setSecretValue3ID] = useState<StoreId>();
+  const [secretValue4ID, setSecretValue4ID] = useState<StoreId>();
+  const [secretValue5ID, setSecretValue5ID] = useState<StoreId>();
+  const [secretValue6ID, setSecretValue6ID] = useState<StoreId>();
   const [computeResult, setComputeResult] = useState<any | null>(null);
   const [computeID, setComputeID] = useState<any | null>(null);
 
@@ -69,7 +77,24 @@ export default function Compute() {
         .insert(
           NamedValue.parse("my_int2"),
           NadaValue.createSecretInteger(secretValue2)
+        )
+        .insert(
+          NamedValue.parse("player_target_1"),
+          NadaValue.createSecretInteger(secretValue3)
+        )
+        .insert(
+          NamedValue.parse("player_input_1"),
+          NadaValue.createSecretInteger(secretValue4)
+        )
+        .insert(
+          NamedValue.parse("player_target_2"),
+          NadaValue.createSecretInteger(secretValue5)
+        )
+        .insert(
+          NamedValue.parse("player_input_2"),
+          NadaValue.createSecretInteger(secretValue6)
         );
+        
 
       const res = await runProgram.mutateAsync({
         bindings: bindings,
@@ -130,6 +155,46 @@ export default function Compute() {
       setSecretValue2ID(result);
     } catch (error) {
       console.error("Error storing SecretInteger2:", error);
+    }
+  };
+
+  const handleStoreSecretInteger3 = async () => {
+    try {
+      const permissions = Permissions.create().allowCompute(
+        client.vm.userId,
+        programID as ProgramId
+      );
+      const result = await storeValue.mutateAsync({
+        values: {
+          mySecretInt: secretValue3,
+        },
+        ttl: 3600,
+        permissions,
+      });
+      console.log("Stored SecretInteger3:", result);
+      setSecretValue3ID(result);
+    } catch (error) {
+      console.error("Error storing SecretInteger3:", error);
+    }
+  };
+
+  const handleStoreSecretInteger4 = async () => {
+    try {
+      const permissions = Permissions.create().allowCompute(
+        client.vm.userId,
+        programID as ProgramId
+      );
+      const result = await storeValue.mutateAsync({
+        values: {
+          mySecretInt: secretValue4,
+        },
+        ttl: 3600,
+        permissions,
+      });
+      console.log("Stored SecretInteger4:", result);
+      setSecretValue4ID(result);
+    } catch (error) {
+      console.error("Error storing SecretInteger4:", error);
     }
   };
 
@@ -231,6 +296,59 @@ export default function Compute() {
             </p>
           </div>
         )}
+      </div>
+
+      <div>
+        <Heading my="2">Inputs</Heading>
+        <Input
+          placeholder="Grid Target 1"
+          value={secretValue3}
+          onChange={(e) => setSecretValue3(Number(e.target.value))}
+        />
+        <Button
+          onClick={() => handleStoreSecretInteger3()}
+          className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+        >
+          Store Secret
+        </Button>
+
+        {secretValue3ID && (
+          <div className="mt-2">
+            <p className="text-sm text-gray-600">
+              Secret Value 3 ID: {secretValue3ID}
+            </p>
+          </div>
+        )}
+        <Input
+          placeholder="Grid Value 1"
+          value={secretValue4}
+          onChange={(e) => setSecretValue4(Number(e.target.value))}
+        />
+         <Button
+          onClick={() => handleStoreSecretInteger4()}
+          className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+        >
+          Store Secret
+        </Button>
+
+        {secretValue4ID && (
+          <div className="mt-2">
+            <p className="text-sm text-gray-600">
+              Secret Value 4 ID: {secretValue4ID}
+            </p>
+          </div>
+        )}
+
+        <Input
+          placeholder="Grid Target 2"
+          value={secretValue5}
+          onChange={(e) => setSecretValue5(Number(e.target.value))}
+        />
+         <Input
+          placeholder="Grid Value 2"
+          value={secretValue6}
+          onChange={(e) => setSecretValue6(Number(e.target.value))}
+        />
       </div>
 
       <div className="border-t border-gray-300 my-4"></div>
