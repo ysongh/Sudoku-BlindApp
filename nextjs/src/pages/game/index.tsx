@@ -7,7 +7,7 @@ import {
   useFetchProgramOutput,
 } from "@nillion/client-react-hooks";
 import { useEffect, useState } from "react";
-import { Container, Code, Input, Heading, Button } from '@chakra-ui/react'
+import { Container, VStack, Grid, Box, Code, Input, Heading, Button } from '@chakra-ui/react'
 import {
   ProgramId,
   PartyName,
@@ -21,12 +21,22 @@ import {
 } from "@nillion/client-core";
 import { transformNadaProgramToUint8Array } from "@/utils/transformNadaProgramToUint8Array";
 
+const initialBoard = [
+  1, 0, 2, 3,
+  0, 0, 0, 0,
+  0, 0, 4, 0,
+  4, 0, 0, 1
+];
+
 export default function Compute() {
   // Use of Nillion Hooks
   const client = useNillion();
   const storeProgram = useStoreProgram();
   const storeValue = useStoreValue();
   const runProgram = useRunProgram();
+
+  const [board, setBoard] = useState(initialBoard);
+  const [selectedCell, setSelectedCell] = useState(null);
 
   // UseStates
   const [selectedProgramCode, setSelectedProgramCode] = useState("");
@@ -339,6 +349,20 @@ export default function Compute() {
     }
   };
 
+  const handleCellClick = (index) => {
+    setSelectedCell(index);
+  };
+
+  const handleInputChange = (e) => {
+    if (selectedCell === null) return;
+    const value = parseInt(e.target.value) || 0;
+    if (value >= 0 && value <= 9) {
+      const newBoard = [...board];
+      newBoard[selectedCell] = value;
+      setBoard(newBoard);
+    }
+  };
+
   // Fetch Nada Program Code.
   useEffect(() => {
     const fetchProgramCode = async () => {
@@ -526,6 +550,30 @@ export default function Compute() {
           onChange={(e) => setTargetValue10(Number(e.target.value))}
         />
       </div>
+      <VStack spacing={8} align="center" justify="center">
+        <Grid templateColumns="repeat(4, 1fr)" gap={2}>
+          {board.map((cell, index) => (
+            <Box
+              key={index}
+              w="50px"
+              h="50px"
+              border="2px"
+              borderColor="gray.300"
+              onClick={() => handleCellClick(index)}
+              bg={selectedCell === index ? "blue.100" : "white"}
+            >
+              <Input
+                value={cell || ''}
+                onChange={handleInputChange}
+                textAlign="center"
+                fontSize="xl"
+                border="none"
+                isReadOnly={initialBoard[index] !== 0}
+              />
+            </Box>
+          ))}
+        </Grid>
+      </VStack>
 
       <div className="border-t border-gray-300 my-4"></div>
 
