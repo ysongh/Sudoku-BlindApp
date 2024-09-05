@@ -22,8 +22,11 @@ def nada_main():
     player_input_2 = SecretInteger(Input(name="player_input_2", party=party1))
 
     for i in range(size):
-        is_target = check_value_at_position(my_int1, Integer(i))
-        playerGrid[i] = is_target.if_else(my_int2, playerGrid[i])
+        is_target_1 = check_value_at_position(my_int1, Integer(i))
+        is_target_2 = check_value_at_position(my_int2, Integer(i))
+        playerGrid[i] = is_target_1.if_else(Integer(0), playerGrid[i])
+        playerGrid[i] = is_target_2.if_else(Integer(0), playerGrid[i])
+
     
     for i in range(size):
         is_target_1 = check_value_at_position(player_target_1, Integer(i))
