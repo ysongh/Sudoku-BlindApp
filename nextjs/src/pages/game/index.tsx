@@ -38,6 +38,8 @@ export default function Compute() {
   const [board, setBoard] = useState(initialBoard);
   const [selectedCell, setSelectedCell] = useState(null);
 
+  console.log(board);
+
   // UseStates
   const [selectedProgramCode, setSelectedProgramCode] = useState("");
   const [secretValue1, setSecretValue1] = useState<number>(1);
@@ -107,129 +109,113 @@ export default function Compute() {
       );
 
       const values = NadaValues.create()
-        .insert(
-          NamedValue.parse("my_int1"),
-          NadaValue.createSecretInteger(secretValue1)
-        )
-        .insert(
-          NamedValue.parse("my_int2"),
-          NadaValue.createSecretInteger(secretValue2)
-        )
-        .insert(
-          NamedValue.parse("my_int3"),
-          NadaValue.createSecretInteger(secretValue3)
-        )
-        .insert(
-          NamedValue.parse("my_int4"),
-          NadaValue.createSecretInteger(secretValue4)
-        )
-        .insert(
-          NamedValue.parse("my_int5"),
-          NadaValue.createSecretInteger(secretValue5)
-        )
-        .insert(
-          NamedValue.parse("my_int6"),
-          NadaValue.createSecretInteger(secretValue6)
-        )
-        .insert(
-          NamedValue.parse("my_int7"),
-          NadaValue.createSecretInteger(secretValue7)
-        )
-        .insert(
-          NamedValue.parse("my_int8"),
-          NadaValue.createSecretInteger(secretValue8)
-        )
-        .insert(
-          NamedValue.parse("my_int9"),
-          NadaValue.createSecretInteger(secretValue9)
-        )
-        .insert(
-          NamedValue.parse("my_int10"),
-          NadaValue.createSecretInteger(secretValue10)
-        )
-
-        .insert(
-          NamedValue.parse("player_target_1"),
-          NadaValue.createSecretInteger(targetNumber1)
-        )
-        .insert(
-          NamedValue.parse("player_target_2"),
-          NadaValue.createSecretInteger(targetNumber2)
-        )
-        .insert(
-          NamedValue.parse("player_target_3"),
-          NadaValue.createSecretInteger(targetNumber3)
-        )
-        .insert(
-          NamedValue.parse("player_target_4"),
-          NadaValue.createSecretInteger(targetNumber4)
-        )
-        .insert(
-          NamedValue.parse("player_target_5"),
-          NadaValue.createSecretInteger(targetNumber5)
-        )
-        .insert(
-          NamedValue.parse("player_target_6"),
-          NadaValue.createSecretInteger(targetNumber6)
-        )
-        .insert(
-          NamedValue.parse("player_target_7"),
-          NadaValue.createSecretInteger(targetNumber7)
-        )
-        .insert(
-          NamedValue.parse("player_target_8"),
-          NadaValue.createSecretInteger(targetNumber8)
-        )
-        .insert(
-          NamedValue.parse("player_target_9"),
-          NadaValue.createSecretInteger(targetNumber9)
-        )
-        .insert(
-          NamedValue.parse("player_target_10"),
-          NadaValue.createSecretInteger(targetNumber10)
-        )
+        // .insert(
+        //   NamedValue.parse("my_int1"),
+        //   NadaValue.createSecretInteger(secretValue1)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int2"),
+        //   NadaValue.createSecretInteger(secretValue2)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int3"),
+        //   NadaValue.createSecretInteger(secretValue3)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int4"),
+        //   NadaValue.createSecretInteger(secretValue4)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int5"),
+        //   NadaValue.createSecretInteger(secretValue5)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int6"),
+        //   NadaValue.createSecretInteger(secretValue6)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int7"),
+        //   NadaValue.createSecretInteger(secretValue7)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int8"),
+        //   NadaValue.createSecretInteger(secretValue8)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int9"),
+        //   NadaValue.createSecretInteger(secretValue9)
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int10"),
+        //   NadaValue.createSecretInteger(secretValue10)
+        // )
 
         .insert(
           NamedValue.parse("player_input_1"),
-          NadaValue.createSecretInteger(targetValue1)
+          NadaValue.createSecretInteger(board[0])
         )
         .insert(
           NamedValue.parse("player_input_2"),
-          NadaValue.createSecretInteger(targetValue2)
+          NadaValue.createSecretInteger(board[1])
         )
         .insert(
           NamedValue.parse("player_input_3"),
-          NadaValue.createSecretInteger(targetValue3)
+          NadaValue.createSecretInteger(board[2])
         )
         .insert(
           NamedValue.parse("player_input_4"),
-          NadaValue.createSecretInteger(targetValue4)
+          NadaValue.createSecretInteger(board[3])
         )
         .insert(
           NamedValue.parse("player_input_5"),
-          NadaValue.createSecretInteger(targetValue5)
+          NadaValue.createSecretInteger(board[4])
         )
         .insert(
           NamedValue.parse("player_input_6"),
-          NadaValue.createSecretInteger(targetValue6)
+          NadaValue.createSecretInteger(board[5])
         )
         .insert(
           NamedValue.parse("player_input_7"),
-          NadaValue.createSecretInteger(targetValue7)
+          NadaValue.createSecretInteger(board[6])
         )
         .insert(
           NamedValue.parse("player_input_8"),
-          NadaValue.createSecretInteger(targetValue8)
+          NadaValue.createSecretInteger(board[7])
         )
         .insert(
           NamedValue.parse("player_input_9"),
-          NadaValue.createSecretInteger(targetValue9)
+          NadaValue.createSecretInteger(board[8])
         )
         .insert(
           NamedValue.parse("player_input_10"),
-          NadaValue.createSecretInteger(targetValue10)
+          NadaValue.createSecretInteger(board[9])
+        )
+        .insert(
+          NamedValue.parse("player_input_11"),
+          NadaValue.createSecretInteger(board[10])
+        )
+        .insert(
+          NamedValue.parse("player_input_12"),
+          NadaValue.createSecretInteger(board[11])
+        )
+        .insert(
+          NamedValue.parse("player_input_13"),
+          NadaValue.createSecretInteger(board[12])
+        )
+        .insert(
+          NamedValue.parse("player_input_14"),
+          NadaValue.createSecretInteger(board[13])
+        )
+        .insert(
+          NamedValue.parse("player_input_15"),
+          NadaValue.createSecretInteger(board[14])
+        )
+        .insert(
+          NamedValue.parse("player_input_16"),
+          NadaValue.createSecretInteger(board[15])
         );
-        
+
+        console.log(values);
 
       const res = await runProgram.mutateAsync({
         bindings: bindings,

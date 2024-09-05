@@ -59,30 +59,18 @@ def nada_main():
         Integer(1)
     ]
 
-    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
-    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
-    my_int3 = SecretInteger(Input(name="my_int3", party=party1))
-    my_int4 = SecretInteger(Input(name="my_int4", party=party1))
-    my_int5 = SecretInteger(Input(name="my_int5", party=party1))
-    my_int6 = SecretInteger(Input(name="my_int6", party=party1))
-    my_int7 = SecretInteger(Input(name="my_int7", party=party1))
-    my_int8 = SecretInteger(Input(name="my_int8", party=party1))
-    my_int9 = SecretInteger(Input(name="my_int9", party=party1))
-    my_int10 = SecretInteger(Input(name="my_int10", party=party1))
+    # my_int1 = SecretInteger(Input(name="my_int1", party=party1))
+    # my_int2 = SecretInteger(Input(name="my_int2", party=party1))
+    # my_int3 = SecretInteger(Input(name="my_int3", party=party1))
+    # my_int4 = SecretInteger(Input(name="my_int4", party=party1))
+    # my_int5 = SecretInteger(Input(name="my_int5", party=party1))
+    # my_int6 = SecretInteger(Input(name="my_int6", party=party1))
+    # my_int7 = SecretInteger(Input(name="my_int7", party=party1))
+    # my_int8 = SecretInteger(Input(name="my_int8", party=party1))
+    # my_int9 = SecretInteger(Input(name="my_int9", party=party1))
+    # my_int10 = SecretInteger(Input(name="my_int10", party=party1))
 
     size = 16
-
-    player_target_1 = SecretInteger(Input(name="player_target_1", party=party1))
-    player_target_2 = SecretInteger(Input(name="player_target_2", party=party1))
-    player_target_3 = SecretInteger(Input(name="player_target_3", party=party1))
-    player_target_4 = SecretInteger(Input(name="player_target_4", party=party1))
-    player_target_5 = SecretInteger(Input(name="player_target_5", party=party1))
-    player_target_6 = SecretInteger(Input(name="player_target_6", party=party1))
-    player_target_7 = SecretInteger(Input(name="player_target_7", party=party1))
-    player_target_7 = SecretInteger(Input(name="player_target_7", party=party1))
-    player_target_8 = SecretInteger(Input(name="player_target_8", party=party1))
-    player_target_9 = SecretInteger(Input(name="player_target_9", party=party1))
-    player_target_10 = SecretInteger(Input(name="player_target_10", party=party1))
     
     player_input_1 = SecretInteger(Input(name="player_input_1", party=party1))
     player_input_2 = SecretInteger(Input(name="player_input_2", party=party1))
@@ -94,56 +82,58 @@ def nada_main():
     player_input_8 = SecretInteger(Input(name="player_input_8", party=party1))
     player_input_9 = SecretInteger(Input(name="player_input_9", party=party1))
     player_input_10 = SecretInteger(Input(name="player_input_10", party=party1))
+    player_input_11 = SecretInteger(Input(name="player_input_11", party=party1))
+    player_input_12 = SecretInteger(Input(name="player_input_12", party=party1))
+    player_input_13 = SecretInteger(Input(name="player_input_13", party=party1))
+    player_input_14 = SecretInteger(Input(name="player_input_14", party=party1))
+    player_input_15 = SecretInteger(Input(name="player_input_15", party=party1))
+    player_input_16 = SecretInteger(Input(name="player_input_16", party=party1))
 
-    for i in range(size):
-        is_target_1 = check_value_at_position(my_int1, Integer(i))
-        is_target_2 = check_value_at_position(my_int2, Integer(i))
-        is_target_3 = check_value_at_position(my_int3, Integer(i))
-        is_target_4 = check_value_at_position(my_int4, Integer(i))
-        is_target_5 = check_value_at_position(my_int5, Integer(i))
-        is_target_6 = check_value_at_position(my_int6, Integer(i))
-        is_target_7 = check_value_at_position(my_int7, Integer(i))
-        is_target_8 = check_value_at_position(my_int8, Integer(i))
-        is_target_9 = check_value_at_position(my_int9, Integer(i))
-        is_target_10 = check_value_at_position(my_int10, Integer(i))
+    # for i in range(size):
+        # is_target_1 = check_value_at_position(my_int1, Integer(i))
+        # is_target_2 = check_value_at_position(my_int2, Integer(i))
+        # is_target_3 = check_value_at_position(my_int3, Integer(i))
+        # is_target_4 = check_value_at_position(my_int4, Integer(i))
+        # is_target_5 = check_value_at_position(my_int5, Integer(i))
+        # is_target_6 = check_value_at_position(my_int6, Integer(i))
+        # is_target_7 = check_value_at_position(my_int7, Integer(i))
+        # is_target_8 = check_value_at_position(my_int8, Integer(i))
+        # is_target_9 = check_value_at_position(my_int9, Integer(i))
+        # is_target_10 = check_value_at_position(my_int10, Integer(i))
 
-        playerGrid[i] = is_target_1.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_2.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_3.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_4.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_5.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_6.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_7.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_8.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_9.if_else(Integer(0), playerGrid[i])
-        playerGrid[i] = is_target_10.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_1.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_2.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_3.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_4.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_5.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_6.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_7.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_8.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_9.if_else(Integer(0), playerGrid[i])
+        # playerGrid[i] = is_target_10.if_else(Integer(0), playerGrid[i])
 
-    for i in range(size):
-        is_target_1 = check_value_at_position(player_target_1, Integer(i))
-        is_target_2 = check_value_at_position(player_target_2, Integer(i))
-        is_target_3 = check_value_at_position(player_target_3, Integer(i))
-        is_target_4 = check_value_at_position(player_target_4, Integer(i))
-        is_target_5 = check_value_at_position(player_target_5, Integer(i))
-        is_target_6 = check_value_at_position(player_target_6, Integer(i))
-        is_target_7 = check_value_at_position(player_target_7, Integer(i))
-        is_target_8 = check_value_at_position(player_target_8, Integer(i))
-        is_target_9 = check_value_at_position(player_target_9, Integer(i))
-        is_target_10 = check_value_at_position(player_target_10, Integer(i))
+    playerGrid[0] = player_input_1
+    playerGrid[1] = player_input_2
+    playerGrid[2] = player_input_3
+    playerGrid[3] = player_input_4
+    playerGrid[4] = player_input_5
+    playerGrid[5] = player_input_6
+    playerGrid[6] = player_input_7
+    playerGrid[7] = player_input_8
+    playerGrid[8] = player_input_9
+    playerGrid[9] = player_input_10
+    playerGrid[10] = player_input_11
+    playerGrid[11] = player_input_12
+    playerGrid[12] = player_input_13
+    playerGrid[13] = player_input_14
+    playerGrid[14] = player_input_15
+    playerGrid[15] = player_input_16
 
-        playerGrid[i] = is_target_1.if_else(player_input_1, playerGrid[i])
-        playerGrid[i] = is_target_2.if_else(player_input_2, playerGrid[i])
-        playerGrid[i] = is_target_3.if_else(player_input_3, playerGrid[i])
-        playerGrid[i] = is_target_4.if_else(player_input_4, playerGrid[i])
-        playerGrid[i] = is_target_5.if_else(player_input_5, playerGrid[i])
-        playerGrid[i] = is_target_6.if_else(player_input_6, playerGrid[i])
-        playerGrid[i] = is_target_7.if_else(player_input_7, playerGrid[i])
-        playerGrid[i] = is_target_8.if_else(player_input_8, playerGrid[i])
-        playerGrid[i] = is_target_9.if_else(player_input_9, playerGrid[i])
-        playerGrid[i] = is_target_10.if_else(player_input_10, playerGrid[i])
+    total = player_input_15 + player_input_14
 
     # grid.append(SecretInteger.random() % Integer(10));
 
-    return [
-        Output(playerGrid[i], str(i), party1)
-        for i in range(size)
-    ]
+    outputs = [Output(total, "total", party1)]
+    outputs += [Output(playerGrid[i], str(i), party1) for i in range(size)]
+
+    return outputs
