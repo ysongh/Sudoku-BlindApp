@@ -133,9 +133,7 @@ def nada_main():
 
     for i in range(size):
         is_match = check_value_at_position(answerGrid[i], playerGrid[i])
-        total += is_match.if_else(Integer(1), Integer(0))
-
-    total = player_input_15 + player_input_14
+        total += is_match.if_else(Integer(0), Integer(1))
 
     # grid.append(SecretInteger.random() % Integer(10));
 
