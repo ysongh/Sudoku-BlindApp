@@ -36,9 +36,8 @@ export default function Compute() {
   const runProgram = useRunProgram();
 
   const [board, setBoard] = useState(initialBoard);
+  const [showCode, setShowCode] = useState(false);
   const [selectedCell, setSelectedCell] = useState(null);
-
-  console.log(board);
 
   // UseStates
   const [selectedProgramCode, setSelectedProgramCode] = useState("");
@@ -365,9 +364,14 @@ export default function Compute() {
       <div className="mt-4">
         <h3 className="text-lg font-semibold mb-2">Program Code:</h3>
         <div className="border-2 border-gray-300 rounded-lg p-4 max-h-60 overflow-y-auto bg-white">
-          <pre className="whitespace-pre-wrap break-words">
+          {showCode && <pre className="whitespace-pre-wrap break-words">
             <Code>{selectedProgramCode}</Code>
-          </pre>
+          </pre>}
+          <Button
+            onClick={() => setShowCode(!showCode)}
+          >
+            {showCode ? "Hide Code" : "Display Code"}
+          </Button>
         </div>
         <Button
           onClick={() => handleStoreProgram()}
