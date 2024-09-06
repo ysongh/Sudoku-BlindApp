@@ -90,7 +90,7 @@ def nada_main():
     player_input_16 = SecretInteger(Input(name="player_input_16", party=party1))
 
     # for i in range(size):
-        # is_target_1 = check_value_at_position(my_int1, Integer(i))
+    #     is_target_1 = check_value_at_position(my_int1, Integer(i))
         # is_target_2 = check_value_at_position(my_int2, Integer(i))
         # is_target_3 = check_value_at_position(my_int3, Integer(i))
         # is_target_4 = check_value_at_position(my_int4, Integer(i))
@@ -128,6 +128,12 @@ def nada_main():
     playerGrid[13] = player_input_14
     playerGrid[14] = player_input_15
     playerGrid[15] = player_input_16
+
+    total = Integer(0)
+
+    for i in range(size):
+        is_match = check_value_at_position(answerGrid[i], playerGrid[i])
+        total += is_match.if_else(Integer(1), Integer(0))
 
     total = player_input_15 + player_input_14
 
