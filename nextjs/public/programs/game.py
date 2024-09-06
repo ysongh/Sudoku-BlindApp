@@ -3,6 +3,9 @@ from nada_dsl import *
 def check_value_at_position(position_value: SecretInteger, target_secret_value: Integer) -> Boolean:
     return position_value == target_secret_value
 
+def is_zero(position_value: SecretInteger) -> Boolean:
+    return position_value == Integer(0)
+
 def nada_main():
 
     party1 = Party(name="Party1")
@@ -112,22 +115,22 @@ def nada_main():
         # playerGrid[i] = is_target_9.if_else(Integer(0), playerGrid[i])
         # playerGrid[i] = is_target_10.if_else(Integer(0), playerGrid[i])
 
-    playerGrid[0] = player_input_1
-    playerGrid[1] = player_input_2
-    playerGrid[2] = player_input_3
-    playerGrid[3] = player_input_4
-    playerGrid[4] = player_input_5
-    playerGrid[5] = player_input_6
-    playerGrid[6] = player_input_7
-    playerGrid[7] = player_input_8
-    playerGrid[8] = player_input_9
-    playerGrid[9] = player_input_10
-    playerGrid[10] = player_input_11
-    playerGrid[11] = player_input_12
-    playerGrid[12] = player_input_13
-    playerGrid[13] = player_input_14
-    playerGrid[14] = player_input_15
-    playerGrid[15] = player_input_16
+    playerGrid[0] = is_zero(player_input_1).if_else(playerGrid[0], player_input_1)
+    playerGrid[1] = is_zero(player_input_2).if_else(playerGrid[1], player_input_2)
+    playerGrid[2] = is_zero(player_input_3).if_else(playerGrid[2], player_input_3)
+    playerGrid[3] = is_zero(player_input_4).if_else(playerGrid[3], player_input_4)
+    playerGrid[4] = is_zero(player_input_5).if_else(playerGrid[4], player_input_5)
+    playerGrid[5] = is_zero(player_input_6).if_else(playerGrid[5], player_input_6)
+    playerGrid[6] = is_zero(player_input_7).if_else(playerGrid[6], player_input_7)
+    playerGrid[7] = is_zero(player_input_8).if_else(playerGrid[7], player_input_8)
+    playerGrid[8] = is_zero(player_input_9).if_else(playerGrid[8], player_input_9)
+    playerGrid[9] = is_zero(player_input_10).if_else(playerGrid[9], player_input_10)
+    playerGrid[10] = is_zero(player_input_11).if_else(playerGrid[10], player_input_11)
+    playerGrid[11] = is_zero(player_input_12).if_else(playerGrid[11], player_input_12)
+    playerGrid[12] = is_zero(player_input_13).if_else(playerGrid[12], player_input_13)
+    playerGrid[13] = is_zero(player_input_14).if_else(playerGrid[13], player_input_14)
+    playerGrid[14] = is_zero(player_input_15).if_else(playerGrid[14], player_input_15)
+    playerGrid[15] = is_zero(player_input_16).if_else(playerGrid[15], player_input_16)
 
     total = Integer(0)
 
