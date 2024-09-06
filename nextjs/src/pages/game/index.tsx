@@ -222,12 +222,13 @@ export default function Compute() {
 
       const result = await storeValue.mutateAsync({
         values: {
-          mySecretInt: secretValue1,
+          my_int1: secretValue1,
         },
         ttl: 3600,
         permissions,
       });
       setSecretValue1ID(result);
+      console.log(result, "result")
     } catch (error) {
       console.error("Error storing SecretInteger:", error);
     }
@@ -242,7 +243,7 @@ export default function Compute() {
       );
       const result = await storeValue.mutateAsync({
         values: {
-          mySecretInt: secretValue2,
+          my_int2: secretValue2,
         },
         ttl: 3600,
         permissions,
