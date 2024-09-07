@@ -38,6 +38,7 @@ export default function Compute() {
   const runProgram = useRunProgram();
 
   const [board, setBoard] = useState(initialBoard);
+  const [cellToRemove, setCellToRemove] = useState([]);
   const [showCode, setShowCode] = useState(false);
   const [selectedCell, setSelectedCell] = useState(null);
 
@@ -45,14 +46,6 @@ export default function Compute() {
   const [selectedProgramCode, setSelectedProgramCode] = useState("");
   const [secretValue1, setSecretValue1] = useState<number>(1);
   const [secretValue2, setSecretValue2] = useState<number>(4);
-  const [secretValue3, setSecretValue3] = useState<number>(5);
-  const [secretValue4, setSecretValue4] = useState<number>(6);
-  const [secretValue5, setSecretValue5] = useState<number>(7);
-  const [secretValue6, setSecretValue6] = useState<number>(8);
-  const [secretValue7, setSecretValue7] = useState<number>(9);
-  const [secretValue8, setSecretValue8] = useState<number>(11);
-  const [secretValue9, setSecretValue9] = useState<number>(13);
-  const [secretValue10, setSecretValue10] = useState<number>(14);
 
   const [programID, setProgramID] = useState<ProgramId>();
   const [secretValue1ID, setSecretValue1ID] = useState<StoreId>();
@@ -88,43 +81,43 @@ export default function Compute() {
       const values = NadaValues.create()
         .insert(
           NamedValue.parse("my_int1"),
-          NadaValue.createSecretInteger(secretValue1)
+          NadaValue.createSecretInteger(cellToRemove[0])
         )
         .insert(
           NamedValue.parse("my_int2"),
-          NadaValue.createSecretInteger(secretValue2)
+          NadaValue.createSecretInteger(cellToRemove[1])
         )
         .insert(
           NamedValue.parse("my_int3"),
-          NadaValue.createSecretInteger(secretValue3)
+          NadaValue.createSecretInteger(cellToRemove[2])
         )
         .insert(
           NamedValue.parse("my_int4"),
-          NadaValue.createSecretInteger(secretValue4)
+          NadaValue.createSecretInteger(cellToRemove[3])
         )
         .insert(
           NamedValue.parse("my_int5"),
-          NadaValue.createSecretInteger(secretValue5)
+          NadaValue.createSecretInteger(cellToRemove[4])
         )
         .insert(
           NamedValue.parse("my_int6"),
-          NadaValue.createSecretInteger(secretValue6)
+          NadaValue.createSecretInteger(cellToRemove[5])
         )
         .insert(
           NamedValue.parse("my_int7"),
-          NadaValue.createSecretInteger(secretValue7)
+          NadaValue.createSecretInteger(cellToRemove[6])
         )
         .insert(
           NamedValue.parse("my_int8"),
-          NadaValue.createSecretInteger(secretValue8)
+          NadaValue.createSecretInteger(cellToRemove[7])
         )
         .insert(
           NamedValue.parse("my_int9"),
-          NadaValue.createSecretInteger(secretValue9)
+          NadaValue.createSecretInteger(cellToRemove[8])
         )
         .insert(
           NamedValue.parse("my_int10"),
-          NadaValue.createSecretInteger(secretValue10)
+          NadaValue.createSecretInteger(cellToRemove[9])
         )
         
         .insert(
@@ -257,46 +250,6 @@ export default function Compute() {
     }
   };
 
-  const handleStoreSecretInteger3 = async () => {
-    try {
-      const permissions = Permissions.create().allowCompute(
-        client.vm.userId,
-        programID as ProgramId
-      );
-      const result = await storeValue.mutateAsync({
-        values: {
-          mySecretInt: secretValue3,
-        },
-        ttl: 3600,
-        permissions,
-      });
-      console.log("Stored SecretInteger3:", result);
-      setSecretValue3ID(result);
-    } catch (error) {
-      console.error("Error storing SecretInteger3:", error);
-    }
-  };
-
-  const handleStoreSecretInteger4 = async () => {
-    try {
-      const permissions = Permissions.create().allowCompute(
-        client.vm.userId,
-        programID as ProgramId
-      );
-      const result = await storeValue.mutateAsync({
-        values: {
-          mySecretInt: secretValue4,
-        },
-        ttl: 3600,
-        permissions,
-      });
-      console.log("Stored SecretInteger4:", result);
-      setSecretValue4ID(result);
-    } catch (error) {
-      console.error("Error storing SecretInteger4:", error);
-    }
-  };
-
   // Action to store Program with Nada
   const handleStoreProgram = async () => {
     try {
@@ -368,7 +321,8 @@ export default function Compute() {
 
       <div className="border-t border-gray-300 my-4"></div>
 
-      <SudokuFlip />
+      <SudokuFlip cellToRemove={cellToRemove} setCellToRemove={setCellToRemove} />
+
       {/* Store Secrets Section */}
       <div>
         <h3 className="text-lg font-semibold mb-2 text-left">Store Secret:</h3>

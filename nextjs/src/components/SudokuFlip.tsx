@@ -8,20 +8,23 @@ const initialBoard = [
   4, 3, 2, 1
 ];
 
-export default function SudokuFlip() {
+export default function SudokuFlip({ cellToRemove, setCellToRemove }) {
   const [board, setBoard] = useState(initialBoard);
+
+  console.log(cellToRemove)
 
   const handleCellClick = (index) => {
     if (board[index] !== 0) {
       const newBoard = [...board];
       newBoard[index] = 0;
       setBoard(newBoard);
+      setCellToRemove([...cellToRemove, index])
     }
   };
 
   return (
     <ChakraProvider>
-      <VStack spacing={8} align="center" justify="center" height="100vh">
+      <VStack spacing={8} align="center" justify="center">
         <Heading>Click-to-Zero Sudoku</Heading>
         <Grid templateColumns="repeat(4, 1fr)" gap={2}>
           {board.map((cell, index) => (
