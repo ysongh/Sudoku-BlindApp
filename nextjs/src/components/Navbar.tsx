@@ -16,9 +16,7 @@ function Navbar() {
             Game
           </Link>
           <Spacer />
-          <Button>
-            Connect Wallet
-          </Button>
+          <w3m-button />
         </Flex>
       </Container>
     </Box>

@@ -9,6 +9,12 @@ import { NillionClient } from "@nillion/client-vms";
 import type { AppProps } from "next/app";
 
 import Navbar from "@/components/Navbar";
+import { AppKit } from '../context/web3modal'
+
+export const metadata = {
+  title: 'AppKit',
+  description: 'AppKit Example'
+}
 
 const client = NillionClient.create({
   network: NamedNetwork.enum.Devnet,
@@ -38,10 +44,12 @@ const client = NillionClient.create({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
-      <NillionClientProvider client={client}>
-        <Navbar />
-        <Component {...pageProps} />
-      </NillionClientProvider>
+      <AppKit>
+        <NillionClientProvider client={client}>
+          <Navbar />
+          <Component {...pageProps} />
+        </NillionClientProvider>
+      </AppKit>
     </ChakraProvider>
   );
 }
