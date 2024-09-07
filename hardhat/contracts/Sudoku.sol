@@ -9,13 +9,18 @@ contract Sudoku {
   struct Game {
     string programId;
     string storeId;
+    uint[] numbers;
   }
 
   function getGames() public view returns (Game[] memory){
     return games;
   }
 
-  function createGame(string memory _programId, string memory _storeId) public {
-    games.push(Game(_programId, _storeId));
+  function getGames(uint _id) public view returns (uint[] memory){
+    return games[_id].numbers;
+  }
+
+  function createGame(string memory _programId, string memory _storeId, uint[] memory _numbers) public {
+    games.push(Game(_programId, _storeId, _numbers));
   }
 }
