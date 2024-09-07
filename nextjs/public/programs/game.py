@@ -36,31 +36,7 @@ def nada_main():
         Integer(3),
         Integer(1)
     ]
-    playerGrid: list[SecretInteger] = [
-        # Row 1
-        Integer(1),
-        Integer(4),
-        Integer(2),
-        Integer(3),
-
-        # Row 2
-        Integer(2),
-        Integer(3),
-        Integer(1),
-        Integer(4),
-
-        # Row 3
-        Integer(3),
-        Integer(1),
-        Integer(4),
-        Integer(2),
-
-        # Row 4
-        Integer(4),
-        Integer(2),
-        Integer(3),
-        Integer(1)
-    ]
+    playerGrid: list[SecretInteger] = answerGrid
 
     my_int1 = SecretInteger(Input(name="my_int1", party=party1))
     my_int2 = SecretInteger(Input(name="my_int2", party=party1))
