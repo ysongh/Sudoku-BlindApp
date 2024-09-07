@@ -69,13 +69,15 @@ function generateSudoku() {
   return grid.flat();
 }
 
-export default function GenerateSudokuNumbers() {
+export default function GenerateSudokuNumbers({ setAnswerBoard }) {
   const [board, setBoard] = useState([]);
   const toast = useToast();
 
   useEffect(() => {
     // Generate a new Sudoku board when the component mounts
-    setBoard(generateSudoku());
+    const newSudoku = generateSudoku();
+    setBoard(newSudoku);
+    setAnswerBoard(newSudoku);
   }, []);
 
   const handleCellClick = (index) => {
@@ -88,7 +90,9 @@ export default function GenerateSudokuNumbers() {
 
 
   const newGame = () => {
-    setBoard(generateSudoku());
+    const newSudoku = generateSudoku();
+    setBoard(newSudoku);
+    setAnswerBoard(newSudoku);
   };
 
   return (

@@ -11,30 +11,47 @@ def nada_main():
     party1 = Party(name="Party1")
     # party2 = Party(name="Party2")
 
+    answer_input_1 = SecretInteger(Input(name="answer_input_1", party=party1))
+    answer_input_2 = SecretInteger(Input(name="answer_input_2", party=party1))
+    answer_input_3 = SecretInteger(Input(name="answer_input_3", party=party1))
+    answer_input_4 = SecretInteger(Input(name="answer_input_4", party=party1))
+    answer_input_5 = SecretInteger(Input(name="answer_input_5", party=party1))
+    answer_input_6 = SecretInteger(Input(name="answer_input_6", party=party1))
+    answer_input_7 = SecretInteger(Input(name="answer_input_7", party=party1))
+    answer_input_8 = SecretInteger(Input(name="answer_input_8", party=party1))
+    answer_input_9 = SecretInteger(Input(name="answer_input_9", party=party1))
+    answer_input_10 = SecretInteger(Input(name="answer_input_10", party=party1))
+    answer_input_11 = SecretInteger(Input(name="answer_input_11", party=party1))
+    answer_input_12 = SecretInteger(Input(name="answer_input_12", party=party1))
+    answer_input_13 = SecretInteger(Input(name="answer_input_13", party=party1))
+    answer_input_14 = SecretInteger(Input(name="answer_input_14", party=party1))
+    answer_input_15 = SecretInteger(Input(name="answer_input_15", party=party1))
+    answer_input_16 = SecretInteger(Input(name="answer_input_16", party=party1))
+
     answerGrid: list[SecretInteger] = [
         # Row 1
-        Integer(1),
-        Integer(4),
-        Integer(2),
-        Integer(3),
+        answer_input_1,
+        answer_input_2,
+        answer_input_3,
+        answer_input_4,
 
         # Row 2
-        Integer(2),
-        Integer(3),
-        Integer(1),
-        Integer(4),
+        answer_input_5,
+        answer_input_6,
+        answer_input_7,
+        answer_input_8,
 
         # Row 3
-        Integer(3),
-        Integer(1),
-        Integer(4),
-        Integer(2),
+        answer_input_9,
+        answer_input_10,
+        answer_input_11,
+        answer_input_12,
 
         # Row 4
-        Integer(4),
-        Integer(2),
-        Integer(3),
-        Integer(1)
+        answer_input_13,
+        answer_input_14,
+        answer_input_15,
+        answer_input_16
     ]
     playerGrid: list[SecretInteger] = answerGrid
 

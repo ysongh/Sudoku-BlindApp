@@ -38,6 +38,7 @@ export default function Compute() {
   const storeValue = useStoreValue();
   const runProgram = useRunProgram();
 
+  const [answerBoard, setAnswerBoard] = useState([]);
   const [board, setBoard] = useState(initialBoard);
   const [cellToRemove, setCellToRemove] = useState([]);
   const [showCode, setShowCode] = useState(false);
@@ -80,6 +81,71 @@ export default function Compute() {
       );
 
       const values = NadaValues.create()
+        .insert(
+          NamedValue.parse("answer_input_1"),
+          NadaValue.createSecretInteger(answerBoard[0])
+        )
+        .insert(
+          NamedValue.parse("answer_input_2"),
+          NadaValue.createSecretInteger(answerBoard[1])
+        )
+        .insert(
+          NamedValue.parse("answer_input_3"),
+          NadaValue.createSecretInteger(answerBoard[2])
+        )
+        .insert(
+          NamedValue.parse("answer_input_4"),
+          NadaValue.createSecretInteger(answerBoard[3])
+        )
+        .insert(
+          NamedValue.parse("answer_input_5"),
+          NadaValue.createSecretInteger(answerBoard[4])
+        )
+        .insert(
+          NamedValue.parse("answer_input_6"),
+          NadaValue.createSecretInteger(answerBoard[5])
+        )
+        .insert(
+          NamedValue.parse("answer_input_7"),
+          NadaValue.createSecretInteger(answerBoard[6])
+        )
+        .insert(
+          NamedValue.parse("answer_input_8"),
+          NadaValue.createSecretInteger(answerBoard[7])
+        )
+        .insert(
+          NamedValue.parse("answer_input_9"),
+          NadaValue.createSecretInteger(answerBoard[8])
+        )
+        .insert(
+          NamedValue.parse("answer_input_10"),
+          NadaValue.createSecretInteger(answerBoard[9])
+        )
+        .insert(
+          NamedValue.parse("answer_input_11"),
+          NadaValue.createSecretInteger(answerBoard[10])
+        )
+        .insert(
+          NamedValue.parse("answer_input_12"),
+          NadaValue.createSecretInteger(answerBoard[11])
+        )
+        .insert(
+          NamedValue.parse("answer_input_13"),
+          NadaValue.createSecretInteger(answerBoard[12])
+        )
+        .insert(
+          NamedValue.parse("answer_input_14"),
+          NadaValue.createSecretInteger(answerBoard[13])
+        )
+        .insert(
+          NamedValue.parse("answer_input_15"),
+          NadaValue.createSecretInteger(answerBoard[14])
+        )
+        .insert(
+          NamedValue.parse("answer_input_16"),
+          NadaValue.createSecretInteger(answerBoard[15])
+        )
+
         .insert(
           NamedValue.parse("my_int1"),
           NadaValue.createSecretInteger(cellToRemove[0])
@@ -322,7 +388,7 @@ export default function Compute() {
 
       <div className="border-t border-gray-300 my-4"></div>
 
-      <GenerateSudokuNumbers />
+      <GenerateSudokuNumbers setAnswerBoard={setAnswerBoard} />
       <SudokuFlip cellToRemove={cellToRemove} setCellToRemove={setCellToRemove} />
 
       {/* Store Secrets Section */}
