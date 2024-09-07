@@ -21,6 +21,7 @@ import {
 } from "@nillion/client-core";
 import { transformNadaProgramToUint8Array } from "@/utils/transformNadaProgramToUint8Array";
 
+import GenerateSudokuNumbers from "@/components/GenerateSudokuNumbers";
 import SudokuFlip from "@/components/SudokuFlip";
 
 const initialBoard = [
@@ -321,6 +322,7 @@ export default function Compute() {
 
       <div className="border-t border-gray-300 my-4"></div>
 
+      <GenerateSudokuNumbers />
       <SudokuFlip cellToRemove={cellToRemove} setCellToRemove={setCellToRemove} />
 
       {/* Store Secrets Section */}
