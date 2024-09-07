@@ -22,7 +22,6 @@ import {
 import { transformNadaProgramToUint8Array } from "@/utils/transformNadaProgramToUint8Array";
 
 import GenerateSudokuNumbers from "@/components/GenerateSudokuNumbers";
-import SudokuFlip from "@/components/SudokuFlip";
 
 const initialBoard = [
   1, 0, 2, 3,
@@ -50,10 +49,7 @@ export default function Compute() {
   const [secretValue2, setSecretValue2] = useState<number>(4);
 
   const [programID, setProgramID] = useState<ProgramId>();
-  const [secretValue1ID, setSecretValue1ID] = useState<StoreId>();
-  const [secretValue2ID, setSecretValue2ID] = useState<StoreId>();
-  const [secretValue3ID, setSecretValue3ID] = useState<StoreId>();
-  const [secretValue4ID, setSecretValue4ID] = useState<StoreId>();
+  const [secretSudokuGameID, setSecretSudokuGameID] = useState<StoreId>();
   const [computeResult, setComputeResult] = useState<any | null>(null);
   const [computeID, setComputeID] = useState<any | null>(null);
 
@@ -274,8 +270,8 @@ export default function Compute() {
     }
   }, [fetchProgram.data]);
 
-  // Action to handle storing secret integer 1
-  const handleStoreSecretInteger1 = async () => {
+  // Action to handle storing Sudoku Game
+  const handleStoreSecretSudokuGame = async () => {
     try {
       const permissions = Permissions.create().allowCompute(
         client.vm.userId,
@@ -284,38 +280,43 @@ export default function Compute() {
 
       const result = await storeValue.mutateAsync({
         values: {
-          my_int1: secretValue1,
+          answer_input_1: answerBoard[0],
+          answer_input_2: answerBoard[1],
+          answer_input_3: answerBoard[2],
+          answer_input_4: answerBoard[3],
+          answer_input_5: answerBoard[4],
+          answer_input_6: answerBoard[5],
+          answer_input_7: answerBoard[6],
+          answer_input_8: answerBoard[7],
+          answer_input_9: answerBoard[8],
+          answer_input_10: answerBoard[9],
+          answer_input_11: answerBoard[10],
+          answer_input_12: answerBoard[11],
+          answer_input_13: answerBoard[12],
+          answer_input_14: answerBoard[13],
+          answer_input_15: answerBoard[14],
+          answer_input_16: answerBoard[15],
+          my_int1: cellToRemove[0],
+          my_int2: cellToRemove[1],
+          my_int3: cellToRemove[2],
+          my_int4: cellToRemove[3],
+          my_int5: cellToRemove[4],
+          my_int6: cellToRemove[5],
+          my_int7: cellToRemove[6],
+          my_int8: cellToRemove[7],
+          my_int9: cellToRemove[8],
+          my_int10: cellToRemove[9]
         },
         ttl: 3600,
         permissions,
       });
-      setSecretValue1ID(result);
+      setSecretSudokuGameID(result);
       console.log(result, "result")
     } catch (error) {
       console.error("Error storing SecretInteger:", error);
     }
   };
 
-  // Action to handle storing secret integer 2
-  const handleStoreSecretInteger2 = async () => {
-    try {
-      const permissions = Permissions.create().allowCompute(
-        client.vm.userId,
-        programID as ProgramId
-      );
-      const result = await storeValue.mutateAsync({
-        values: {
-          my_int2: secretValue2,
-        },
-        ttl: 3600,
-        permissions,
-      });
-      console.log("Stored SecretInteger2:", result);
-      setSecretValue2ID(result);
-    } catch (error) {
-      console.error("Error storing SecretInteger2:", error);
-    }
-  };
 
   // Action to store Program with Nada
   const handleStoreProgram = async () => {
@@ -388,58 +389,28 @@ export default function Compute() {
 
       <div className="border-t border-gray-300 my-4"></div>
 
-      <GenerateSudokuNumbers setAnswerBoard={setAnswerBoard} />
-      <SudokuFlip cellToRemove={cellToRemove} setCellToRemove={setCellToRemove} />
-
+      <GenerateSudokuNumbers setAnswerBoard={setAnswerBoard} cellToRemove={cellToRemove} setCellToRemove={setCellToRemove} />
+      
       {/* Store Secrets Section */}
-      <div>
-        <h3 className="text-lg font-semibold mb-2 text-left">Store Secret:</h3>
-        <p> Store your int_1</p>
-        <Input
-          placeholder="Enter your secret value"
-          value={secretValue1}
-          onChange={(e) => setSecretValue1(Number(e.target.value))}
-          className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-        />
+      <center>
         <Button
-          onClick={() => handleStoreSecretInteger1()}
-          className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+          onClick={() => handleStoreSecretSudokuGame()}
+          mt="3"
+          mb="4"
         >
-          Store Secret
+          Store Secret Sudoku Game
         </Button>
 
-        {secretValue1ID && (
+        {secretSudokuGameID && (
           <div className="mt-2">
             <p className="text-sm text-gray-600">
-              Secret Value 1 ID: {secretValue1ID}
+              Secret Sudoku Game ID: {secretSudokuGameID}
             </p>
           </div>
         )}
+      </center>
 
-        <p> Store your int_2</p>
-        <Input
-          placeholder="Enter your secret value"
-          value={secretValue2}
-          onChange={(e) => setSecretValue2(Number(e.target.value))}
-          className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-        />
-        <Button
-          onClick={() => handleStoreSecretInteger2()}
-          className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
-        >
-          Store Secret
-        </Button>
-
-        {secretValue2ID && (
-          <div className="mt-2">
-            <p className="text-sm text-gray-600">
-              Secret Value 2 ID: {secretValue2ID}
-            </p>
-          </div>
-        )}
-      </div>
-
-      <VStack spacing={8} align="center" justify="center">
+      <VStack spacing={8} align="center" justify="center" marginTop="300px" mb="10">
         <Grid templateColumns="repeat(4, 1fr)" gap={2}>
           {board.map((cell, index) => (
             <Box

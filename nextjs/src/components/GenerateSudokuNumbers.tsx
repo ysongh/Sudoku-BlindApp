@@ -69,7 +69,7 @@ function generateSudoku() {
   return grid.flat();
 }
 
-export default function GenerateSudokuNumbers({ setAnswerBoard }) {
+export default function GenerateSudokuNumbers({ setAnswerBoard, cellToRemove, setCellToRemove  }) {
   const [board, setBoard] = useState([]);
   const toast = useToast();
 
@@ -85,6 +85,7 @@ export default function GenerateSudokuNumbers({ setAnswerBoard }) {
       const newBoard = [...board];
       newBoard[index] = 0;
       setBoard(newBoard);
+      setCellToRemove([...cellToRemove, index])
     }
   };
 
