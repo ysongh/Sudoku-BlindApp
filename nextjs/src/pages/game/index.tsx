@@ -21,6 +21,8 @@ import {
 } from "@nillion/client-core";
 import { transformNadaProgramToUint8Array } from "@/utils/transformNadaProgramToUint8Array";
 
+import SudokuFlip from "@/components/SudokuFlip";
+
 const initialBoard = [
   1, 0, 2, 3,
   0, 0, 0, 0,
@@ -366,6 +368,7 @@ export default function Compute() {
 
       <div className="border-t border-gray-300 my-4"></div>
 
+      <SudokuFlip />
       {/* Store Secrets Section */}
       <div>
         <h3 className="text-lg font-semibold mb-2 text-left">Store Secret:</h3>
