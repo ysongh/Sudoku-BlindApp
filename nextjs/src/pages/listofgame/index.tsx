@@ -43,9 +43,11 @@ const SudokuCard = ({ game, onPlay, index }) => {
         <Text fontSize="10px">
           {game[1]}
         </Text>
-        <Button colorScheme="blue" onClick={() => onPlay(game.id)}>
-          {game.completed ? "Play Again" : "Play"}
-        </Button>
+        <Link href={`/game/${index}`} passHref>
+          <Button colorScheme="blue">
+            Play
+          </Button>
+        </Link>
       </VStack>
     </Box>
   );
