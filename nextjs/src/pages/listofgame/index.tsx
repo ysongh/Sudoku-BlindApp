@@ -4,7 +4,7 @@ import { ChakraProvider, Box, VStack, Heading, Text, Button, Grid, useColorModeV
 import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers/react';
 import { BrowserProvider, Contract } from 'ethers';
 
-import Sudoku from "@/artifacts/contracts/Sudoku.sol/Sudoku.json";
+import Sudoku from "@/context/Sudoku.json";
 
 const SudokuAddress = "0xF18e390B93177B436482633E86dC88233Ae8AdDc";
 
