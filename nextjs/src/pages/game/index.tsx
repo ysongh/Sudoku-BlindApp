@@ -20,8 +20,11 @@ import {
   NamedValue,
 } from "@nillion/client-core";
 import { transformNadaProgramToUint8Array } from "@/utils/transformNadaProgramToUint8Array";
+import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers/react'
+import { BrowserProvider, Contract } from 'ethers'
 
 import GenerateSudokuNumbers from "@/components/GenerateSudokuNumbers";
+import Sudoku from "@/artifacts/contracts/Sudoku.sol/Sudoku.json";
 
 const initialBoard = [
   1, 0, 2, 3,
@@ -30,7 +33,12 @@ const initialBoard = [
   4, 0, 0, 1
 ];
 
+const SudokuAddress = "0x0e79dd711611bB54d70BFac1a5f8A3de62f8d015";
+
 export default function Compute() {
+  const { address, chainId, isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
+
   // Use of Nillion Hooks
   const client = useNillion();
   const storeProgram = useStoreProgram();
@@ -358,6 +366,18 @@ export default function Compute() {
     fetchProgramCode();
   }, [selectedProgramCode]);
 
+  const handleSaveOnChain = async () => {
+    if (!isConnected) throw Error('User disconnected');
+
+    const ethersProvider = new BrowserProvider(walletProvider);
+    const signer = await ethersProvider.getSigner();
+
+    // The Contract object
+    const SudokuContract = new Contract(SudokuAddress, Sudoku.abi, signer);
+    const transactionHash = await SudokuContract.createGame(programID, secretSudokuGameID, answerBoard);
+    console.log(transactionHash);
+  }
+
   return (
     <Container className="flex flex-col justify-center min-h-screen p-8" maxW='1100px'>
       {/* Store Programs Section */}
@@ -408,6 +428,16 @@ export default function Compute() {
             </p>
           </div>
         )}
+
+        <br />
+
+        <Button
+          onClick={() => handleSaveOnChain()}
+          mt="3"
+          mb="4"
+        >
+         Save Game on-chain
+        </Button>
       </center>
 
       <VStack spacing={8} align="center" justify="center" marginTop="300px" mb="10">
