@@ -6,7 +6,7 @@ import { BrowserProvider, Contract } from 'ethers';
 
 import Sudoku from "@/artifacts/contracts/Sudoku.sol/Sudoku.json";
 
-const SudokuAddress = "0x0e79dd711611bB54d70BFac1a5f8A3de62f8d015";
+const SudokuAddress = "0xF18e390B93177B436482633E86dC88233Ae8AdDc";
 
 // Mock data for Sudoku games
 const sudokuGames = [
@@ -78,7 +78,6 @@ const SudokuListPage = () => {
     // The Contract object
     const SudokuContract = new Contract(SudokuAddress, Sudoku.abi, signer);
     const games = await SudokuContract.getGames();
-    console.log(games[0][0]);
     setListgames(games);
   }
 

@@ -33,7 +33,7 @@ const initialBoard = [
   4, 0, 0, 1
 ];
 
-const SudokuAddress = "0x0e79dd711611bB54d70BFac1a5f8A3de62f8d015";
+const SudokuAddress = "0xF18e390B93177B436482633E86dC88233Ae8AdDc";
 
 export default function Compute() {
   const { address, chainId, isConnected } = useWeb3ModalAccount()
