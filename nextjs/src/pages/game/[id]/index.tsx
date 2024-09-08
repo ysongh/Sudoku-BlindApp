@@ -230,7 +230,7 @@ export default function Compute() {
               bg={selectedCell === index ? "blue.100" : "white"}
             >
               <Input
-                value={cell.toString() || ''}
+                value={+cell.toString() || ''}
                 onChange={handleInputChange}
                 textAlign="center"
                 fontSize="xl"

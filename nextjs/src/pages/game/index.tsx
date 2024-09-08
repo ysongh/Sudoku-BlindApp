@@ -374,7 +374,7 @@ export default function Compute() {
 
     // The Contract object
     const SudokuContract = new Contract(SudokuAddress, Sudoku.abi, signer);
-    const transactionHash = await SudokuContract.createGame(programID, secretSudokuGameID, answerBoard);
+    const transactionHash = await SudokuContract.createGame(programID, secretSudokuGameID, board);
     console.log(transactionHash);
   }
 
