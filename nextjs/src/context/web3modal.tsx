@@ -14,6 +14,14 @@ const mainnet = {
   rpcUrl: 'https://cloudflare-eth.com'
 }
 
+const sepolia = {
+  chainId: 11155111,
+  name: 'Sepolia',
+  currency: 'ETH',
+  explorerUrl: 'https://sepolia.etherscan.io/',
+  rpcUrl: `https://eth-sepolia.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}`
+}
+
 // 3. Create a metadata object
 const metadata = {
   name: 'My Website',
@@ -37,7 +45,7 @@ const ethersConfig = defaultConfig({
 // 5. Create a AppKit instance
 createWeb3Modal({
   ethersConfig,
-  chains: [mainnet],
+  chains: [sepolia],
   projectId,
   enableAnalytics: true // Optional - defaults to your Cloud configuration
 })
