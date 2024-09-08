@@ -24,7 +24,7 @@ import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers/rea
 import { BrowserProvider, Contract } from 'ethers'
 
 import GenerateSudokuNumbers from "@/components/GenerateSudokuNumbers";
-import Sudoku from "@/artifacts/contracts/Sudoku.sol/Sudoku.json";
+import Sudoku from "@/context/Sudoku.json";
 
 const initialBoard = [
   1, 0, 2, 3,
