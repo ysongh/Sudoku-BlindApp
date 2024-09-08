@@ -77,111 +77,111 @@ export default function Compute() {
       );
 
       const values = NadaValues.create()
-        .insert(
-          NamedValue.parse("answer_input_1"),
-          NadaValue.createSecretInteger(answerBoard[0])
-        )
-        .insert(
-          NamedValue.parse("answer_input_2"),
-          NadaValue.createSecretInteger(answerBoard[1])
-        )
-        .insert(
-          NamedValue.parse("answer_input_3"),
-          NadaValue.createSecretInteger(answerBoard[2])
-        )
-        .insert(
-          NamedValue.parse("answer_input_4"),
-          NadaValue.createSecretInteger(answerBoard[3])
-        )
-        .insert(
-          NamedValue.parse("answer_input_5"),
-          NadaValue.createSecretInteger(answerBoard[4])
-        )
-        .insert(
-          NamedValue.parse("answer_input_6"),
-          NadaValue.createSecretInteger(answerBoard[5])
-        )
-        .insert(
-          NamedValue.parse("answer_input_7"),
-          NadaValue.createSecretInteger(answerBoard[6])
-        )
-        .insert(
-          NamedValue.parse("answer_input_8"),
-          NadaValue.createSecretInteger(answerBoard[7])
-        )
-        .insert(
-          NamedValue.parse("answer_input_9"),
-          NadaValue.createSecretInteger(answerBoard[8])
-        )
-        .insert(
-          NamedValue.parse("answer_input_10"),
-          NadaValue.createSecretInteger(answerBoard[9])
-        )
-        .insert(
-          NamedValue.parse("answer_input_11"),
-          NadaValue.createSecretInteger(answerBoard[10])
-        )
-        .insert(
-          NamedValue.parse("answer_input_12"),
-          NadaValue.createSecretInteger(answerBoard[11])
-        )
-        .insert(
-          NamedValue.parse("answer_input_13"),
-          NadaValue.createSecretInteger(answerBoard[12])
-        )
-        .insert(
-          NamedValue.parse("answer_input_14"),
-          NadaValue.createSecretInteger(answerBoard[13])
-        )
-        .insert(
-          NamedValue.parse("answer_input_15"),
-          NadaValue.createSecretInteger(answerBoard[14])
-        )
-        .insert(
-          NamedValue.parse("answer_input_16"),
-          NadaValue.createSecretInteger(answerBoard[15])
-        )
+        // .insert(
+        //   NamedValue.parse("answer_input_1"),
+        //   NadaValue.createSecretInteger(answerBoard[0])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_2"),
+        //   NadaValue.createSecretInteger(answerBoard[1])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_3"),
+        //   NadaValue.createSecretInteger(answerBoard[2])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_4"),
+        //   NadaValue.createSecretInteger(answerBoard[3])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_5"),
+        //   NadaValue.createSecretInteger(answerBoard[4])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_6"),
+        //   NadaValue.createSecretInteger(answerBoard[5])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_7"),
+        //   NadaValue.createSecretInteger(answerBoard[6])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_8"),
+        //   NadaValue.createSecretInteger(answerBoard[7])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_9"),
+        //   NadaValue.createSecretInteger(answerBoard[8])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_10"),
+        //   NadaValue.createSecretInteger(answerBoard[9])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_11"),
+        //   NadaValue.createSecretInteger(answerBoard[10])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_12"),
+        //   NadaValue.createSecretInteger(answerBoard[11])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_13"),
+        //   NadaValue.createSecretInteger(answerBoard[12])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_14"),
+        //   NadaValue.createSecretInteger(answerBoard[13])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_15"),
+        //   NadaValue.createSecretInteger(answerBoard[14])
+        // )
+        // .insert(
+        //   NamedValue.parse("answer_input_16"),
+        //   NadaValue.createSecretInteger(answerBoard[15])
+        // )
 
-        .insert(
-          NamedValue.parse("my_int1"),
-          NadaValue.createSecretInteger(cellToRemove[0])
-        )
-        .insert(
-          NamedValue.parse("my_int2"),
-          NadaValue.createSecretInteger(cellToRemove[1])
-        )
-        .insert(
-          NamedValue.parse("my_int3"),
-          NadaValue.createSecretInteger(cellToRemove[2])
-        )
-        .insert(
-          NamedValue.parse("my_int4"),
-          NadaValue.createSecretInteger(cellToRemove[3])
-        )
-        .insert(
-          NamedValue.parse("my_int5"),
-          NadaValue.createSecretInteger(cellToRemove[4])
-        )
-        .insert(
-          NamedValue.parse("my_int6"),
-          NadaValue.createSecretInteger(cellToRemove[5])
-        )
-        .insert(
-          NamedValue.parse("my_int7"),
-          NadaValue.createSecretInteger(cellToRemove[6])
-        )
-        .insert(
-          NamedValue.parse("my_int8"),
-          NadaValue.createSecretInteger(cellToRemove[7])
-        )
-        .insert(
-          NamedValue.parse("my_int9"),
-          NadaValue.createSecretInteger(cellToRemove[8])
-        )
-        .insert(
-          NamedValue.parse("my_int10"),
-          NadaValue.createSecretInteger(cellToRemove[9])
-        )
+        // .insert(
+        //   NamedValue.parse("my_int1"),
+        //   NadaValue.createSecretInteger(cellToRemove[0])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int2"),
+        //   NadaValue.createSecretInteger(cellToRemove[1])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int3"),
+        //   NadaValue.createSecretInteger(cellToRemove[2])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int4"),
+        //   NadaValue.createSecretInteger(cellToRemove[3])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int5"),
+        //   NadaValue.createSecretInteger(cellToRemove[4])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int6"),
+        //   NadaValue.createSecretInteger(cellToRemove[5])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int7"),
+        //   NadaValue.createSecretInteger(cellToRemove[6])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int8"),
+        //   NadaValue.createSecretInteger(cellToRemove[7])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int9"),
+        //   NadaValue.createSecretInteger(cellToRemove[8])
+        // )
+        // .insert(
+        //   NamedValue.parse("my_int10"),
+        //   NadaValue.createSecretInteger(cellToRemove[9])
+        // )
         
         .insert(
           NamedValue.parse("player_input_1"),
@@ -253,7 +253,7 @@ export default function Compute() {
       const res = await runProgram.mutateAsync({
         bindings: bindings,
         values,
-        storeIds: [],
+        storeIds: [secretSudokuGameID],
       });
 
       setComputeID(res);
