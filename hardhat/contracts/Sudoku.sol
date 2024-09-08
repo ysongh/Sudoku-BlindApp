@@ -16,7 +16,7 @@ contract Sudoku {
     return games;
   }
 
-  function getGames(uint _id) public view returns (uint[] memory){
+  function getNumbers(uint _id) public view returns (uint[] memory){
     return games[_id].numbers;
   }
 
