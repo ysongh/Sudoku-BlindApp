@@ -13,6 +13,9 @@ function Navbar() {
           <Link href='/' passHref>
             Home
           </Link>
+          <Link href='/listofgame' passHref>
+            Games
+          </Link>
           <Link href='/game' passHref>
             Game
           </Link>
