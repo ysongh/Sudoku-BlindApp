@@ -28,7 +28,6 @@ def nada_main():
     answer_input_15 = SecretInteger(Input(name="answer_input_15", party=party1))
     answer_input_16 = SecretInteger(Input(name="answer_input_16", party=party1))
 
-
     answerGrid: list[SecretInteger] = [
         # Row 1
         answer_input_1,

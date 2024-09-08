@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Grid, Button, VStack, Heading, useToast } from '@chakra-ui/react';
+import { Box, Grid, Button, VStack, Heading, Text, useToast } from '@chakra-ui/react';
 
 // Function to generate a valid 4x4 Sudoku board
 function generateSudoku() {
@@ -99,6 +99,7 @@ export default function GenerateSudokuNumbers({ setAnswerBoard, cellToRemove, se
   return (
     <VStack spacing={8} align="center" justify="center">
       <Heading>Generate Sudoku</Heading>
+      <Text>Pick 10 numbers to remove from the Sudoku grid</Text>
       <Grid templateColumns="repeat(4, 1fr)" gap={2}>
         {board.map((cell, index) => (
           <Box
