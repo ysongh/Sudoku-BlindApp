@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { ChakraProvider, Box, VStack, Heading, Text, Button, Grid, Image, useColorModeValue } from '@chakra-ui/react';
 
 const Feature = ({ title, description, icon }) => {
@@ -37,9 +38,11 @@ const LandingPage = () => {
             <Text fontSize="xl" maxW="2xl">
               Experience the thrill of Sudoku in a compact 4x4 grid. Perfect for quick games and Sudoku beginners!
             </Text>
-            <Button colorScheme="blue" size="lg" onClick={() => alert('Start Game!')}>
-              Play Now
-            </Button>
+            <Link href='/listofgame' passHref>
+              <Button colorScheme="blue" size="lg">
+                Play Now
+              </Button>
+            </Link>
           </VStack>
 
           {/* Features Section */}
@@ -71,12 +74,12 @@ const LandingPage = () => {
             <Heading as="h2" size="xl">
               How to Play
             </Heading>
-            <Text fontSize="lg" maxW="2xl">
-              1. Start a new game to get a random 4x4 Sudoku board.<br/>
-              2. Click on cells to turn them to zero.<br/>
-              3. Your goal is to clear all cells on the board.<br/>
+            <Text fontSize="lg" maxW="700px" align="left">
+              1. The owner creates a random 4x4 Sudoku game.<br/>
+              2. The owner removes 10 numbers from the Sudoku grid, stores the solution, and the game is saved on Nillion.<br/>
+              3. The player solves the Sudoku puzzle.<br/>
               4. Use strategy to decide which cells to clear first!<br/>
-              5. Click "Check Solution" to see if you've won.
+              5. The player clicks the "Compute" button to run a computation on Nillion, which compares the player's solution with the correct answer to check if the Sudoku is solved correctly.
             </Text>
           </VStack>
 
