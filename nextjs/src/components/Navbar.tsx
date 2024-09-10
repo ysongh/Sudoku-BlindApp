@@ -16,9 +16,6 @@ function Navbar() {
           <Link href='/listofgame' passHref>
             Games
           </Link>
-          <Link href='/game' passHref>
-            Game
-          </Link>
           <Spacer />
           <w3m-button />
         </Flex>
