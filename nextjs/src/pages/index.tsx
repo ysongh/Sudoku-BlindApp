@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ChakraProvider, Box, VStack, Heading, Text, Button, Grid, Image, useColorModeValue } from '@chakra-ui/react';
+import { Container, Box, VStack, Heading, Text, Button, Grid, useColorModeValue } from '@chakra-ui/react';
 
 const Feature = ({ title, description, icon }) => {
   return (
@@ -27,7 +27,7 @@ const Feature = ({ title, description, icon }) => {
 
 const LandingPage = () => {
   return (
-    <ChakraProvider>
+    <Container maxW='1100px'>
       <Box minHeight="100vh" py={16}>
         <VStack spacing={16}>
           {/* Hero Section */}
@@ -94,7 +94,7 @@ const LandingPage = () => {
           </VStack>
         </VStack>
       </Box>
-    </ChakraProvider>
+    </Container>
   );
 };
 
